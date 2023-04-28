@@ -1,36 +1,42 @@
 #include <stdio.h>
-#include <cs50.h>
 #include <math.h>
+#include <stdbool.h>
 
 //Protótipo das funções
-int somaCheck(long creditCard);
-int multNum(int numV);
-int digcard(long creditCard);
-int flag(long creditCard, int qtdDigitos, bool valid);
 
-int main(void)
+int somaCheck(double creditCard);
+int multNum(int numV);
+int flag(double creditCard, bool valid);
+
+int main()
 {
     //var
-    int qtdDigitos;
     bool valid;
+    double creditCard; 
     //Pedido do Cartão de credito
-    long creditCard = get_long("Número do cartão: ");
+    printf("Card Number:");
+    scanf("%lf", &creditCard);
 
     valid = somaCheck(creditCard);
+    flag(creditCard, valid);
 
-    qtdDigitos = digcard(creditCard);
-    flag(creditCard, qtdDigitos, valid);
+    printf("\nPressione qualquer tecla para continuar");
+    fflush(stdin);
+    getchar();
+
+
 }
 
 
-//Faz a soma dos digitos do cartão
-int somaCheck(long creditCard)
+//Faz a soma dos digitos do cartão e verifica se é valido.
+int somaCheck(double creditCard)
 {
-    int numV, check = 0;
+    int numV; 
+    int check = 0;
     bool position = false;
-    while (creditCard > 0)
+    for (int i = 0; i < 16; i++)
     {
-        numV = creditCard % 10;
+        numV = fmodl(creditCard, 10);
         if (position == true)
         {
             check = check + multNum(numV);
@@ -43,10 +49,12 @@ int somaCheck(long creditCard)
         position = !position;
     }
     check = check % 10;
-    if (check == 0){
+    if (check == 0)
+    {
         return true;
     }
-    else{
+    else
+    {
         return false;
     }
 }
@@ -70,60 +78,49 @@ int multNum(int numV)
 }
 
 
-//Calcula a quantidade de digitos do cartão
-int digcard(long creditCard)
-{
-    int count = 0;
-    while (creditCard > 0)
-    {
-        creditCard = creditCard / 10;
-        count++;
-    }
-    return count;
-}
-
 //Calcula qual a bandeira do cartão
-int flag(long creditCard, int qtdDigitos, bool valid)
+int flag(double creditCard, bool valid)
 {
     int fnum;
    if (valid == true)
    {
-    if (qtdDigitos == 16){
-        fnum = creditCard / pow(10, 14);
-        if (fnum > 50 && fnum < 56){
-            return printf("MASTERCARD\n");
-        }
-        else if (fnum > 39 && fnum < 50){
-            return printf("VISA\n");
-        }
-        else {
-            return printf("INVALID\n");
-        }
+    fnum = creditCard / pow(10, 12);
+    if (fnum == 4)
+    {
+        return printf("VISA\n");
     }
-    else if (qtdDigitos == 15){
+    else if (fnum < 5599)
+    {
         fnum = creditCard / pow(10, 13);
-        if (fnum == 34 || fnum == 37){
+        if (fnum == 34 || fnum == 37)
+        {
             return printf("AMEX\n");
         }
-        else {
-            return printf("INVALID\n");
+        else if (fnum > 509 && fnum < 560)
+        {
+            return printf("MASTERCARD\n");
         }
-    }
-    else if (qtdDigitos == 13){
-        fnum = creditCard / pow(10, 12);
-        if (fnum == 4){
+        else if (fnum > 399 && fnum < 500)
+        {
             return printf("VISA\n");
         }
-        else {
-            printf("INVALID\n");
+        else
+        {
+            return printf("INVALID\n");
         }
+    } 
+    else if (fnum > 5599)
+    {
+        return printf("INVALID\n");
     }
-    else {
-        printf("INVALID\n");
+    else
+    {
+        return printf("INVALID\n");
     }
    }
 
-   else {
+   else
+   {
     printf("INVALID\n");
    }
     return 0;
