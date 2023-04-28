@@ -33,5 +33,3 @@ O meu programa tem como objetivo, descobrir qual a companhia o cartão opera (VI
 > Para aprofundamento no tema:
 
 https://en.wikipedia.org/wiki/Luhn_algorithm
-
-https://www.inf.ufrgs.br/arq/wiki/lib/exe/fetch.php?media=wiki:trab:cesar:2008-2-numero_de_cartao_de_credito.pdf
