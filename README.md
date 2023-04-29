@@ -14,11 +14,8 @@ Exemplo:
 <div align="center">
 <img src="https://user-images.githubusercontent.com/121034187/235030750-5b3abb5c-fc68-4b79-9978-9c05e70425bc.png" width="750px" />
 </div>
-<strong>
-Como saber qual a companhia do cartão:
-</strong>
 
-Cada operadora tem um código deixado no inicio do cartão.
+>Como saber qual a companhia do cartão: Cada operadora tem um código deixado no inicio do cartão.
 
 
 <div align="center">
