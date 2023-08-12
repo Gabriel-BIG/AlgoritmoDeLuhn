@@ -7,7 +7,7 @@ O algoritimo funciona da seguinte maneira:
 
 1. Começando com o penúltimo dígito e movendo para a esquerda, multiplique por 2 o valor de todos os dígitos de maneira intercalada.
 2. Pegue os digitos que não foram multiplicados e some com todos os resultados da primeira parte. Caso o produto da multiplicação anterior tenha 2 digitos,
-some os 2 (Resultado da primeira etapa 16, faça 1 + 6).
+some os 2 (Exemplo: resultado 16, faça 1 + 6).
 3. Ao final da soma, o número apresentado deverá ter final 0. Caso contrário o número do cartão é inválido.
 
 Exemplo:
