@@ -1,5 +1,5 @@
 # Algoritmo de Luhn
->O algoritmo de Luhn é um algoritmo que verificão se o cartão de crédito é válido ou não.
+>O algoritmo de Luhn é um algoritmo que verifica se o cartão de crédito é válido ou não.
 
 <br><strong>
 O algoritimo funciona da seguinte maneira:
